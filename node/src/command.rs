@@ -7,7 +7,7 @@ use crate::{
 use frame_benchmarking_cli::{BenchmarkCmd, ExtrinsicFactory, SUBSTRATE_REFERENCE_HARDWARE};
 use sc_cli::SubstrateCli;
 use sc_service::PartialComponents;
-use speem_runtime::{Block, EXISTENTIAL_DEPOSIT};
+use scholarledger_runtime::{Block, EXISTENTIAL_DEPOSIT};
 use sp_keyring::Sr25519Keyring;
 
 impl SubstrateCli for Cli {
@@ -180,8 +180,8 @@ pub fn run() -> sc_cli::Result<()> {
 				match config.network.network_backend {
 					sc_network::config::NetworkBackendType::Libp2p => service::new_full::<
 						sc_network::NetworkWorker<
-							speem_runtime::opaque::Block,
-							<speem_runtime::opaque::Block as sp_runtime::traits::Block>::Hash,
+							scholarledger_runtime::opaque::Block,
+							<scholarledger_runtime::opaque::Block as sp_runtime::traits::Block>::Hash,
 						>,
 					>(config)
 					.map_err(sc_cli::Error::Service),
